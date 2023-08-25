@@ -59,9 +59,13 @@ def setup(hass: HomeAssistant, config):
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry):
     """Set up TickTick from a config entry."""
-
-    client = TickTick()
-
+    client_id = hass.data["secrets"]["ticktick_client_id"] 
+    client_secret = hass.data["secrets"]["ticktick_client_secret"] 
+    username = hass.data["secrets"]["ticktick_username"] 
+    password = hass.data["secrets"]["ticktick_password"]
+    client = TickTick(client_id, client_secret)
+    client.login(username, password)
+    
     await hass.async_add_executor_job(
         client.login, entry.data.get("username"), entry.data.get("password")
     )
