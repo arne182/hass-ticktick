@@ -3,7 +3,7 @@
   "name": "TickTick",
   "config_flow": true,
   "documentation": "https://github.com/arne182/hass-ticktick",
-  "requirements": ["ticktick-py==2.0.3"],
+  "requirements": ["git+https://github.com/lazeroffmichael/ticktick-py.git@main#egg=ticktick-py"],
   "ssdp": [],
   "zeroconf": [],
   "homekit": {},
